@@ -4,42 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
-  <style>
-:root{
-
-form{padding:28px 36px;display:flex;flex-direction:column;gap:12px}
-.row{display:flex;gap:12px}
-.col{flex:1}
+ <style>
 
 
-label{display:block;font-size:13px;margin-bottom:6px;color:#111827}
-input[type="text"],input[type="email"],input[type="tel"],textarea,select{
-width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef;background:#fff;font-size:14px}
-textarea{min-height:140px;resize:vertical}
+.container {
+background: #ffffff;
+padding: 25px;
+width: 350px;
+border-radius: 10px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
 
-.small{font-size:13px;color:var(--muted);margin-top:6px}
+h2 {
+text-align: center;
+margin-bottom: 20px;
+}
 
 
-.actions{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
-.btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
-.btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,102,255,0.12)}
+label {
+display: block;
+margin-top: 12px;
+font-weight: bold;
+}
 
 
-.consent{display:flex;gap:10px;align-items:flex-start}
-.consent input{margin-top:4px}
+input, select {
+width: 100%;
+padding: 10px;
+margin-top: 6px;
+border: 1px solid #ccc;
+border-radius: 6px;
+font-size: 14px;
+}
 
 
-.note{font-size:12px;color:var(--muted)}
+button {
+width: 100%;
+padding: 12px;
+margin-top: 18px;
+background: #007bff;
+color: #fff;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 16px;
+}
 
 
-.success{display:none;padding:12px;border-radius:8px;background:#ecfdf5;color:#065f46;margin-top:10px}
-
-
-@media (max-width:900px){
-.card{grid-template-columns:1fr}
-.info{order:2}
-form{order:1}
+button:hover {
+background: #005fcc;
 }
 </style>
     <link rel="stylesheet" href="style.css">
@@ -126,84 +140,28 @@ form{order:1}
             <p><strong>Site web :</strong> <a href="https://konetchjima.com/">https://konetchjima.com/</a></p>
         </div>
 
-        <main class="card" role="main">
-</div>
-</div>
+  <div class="container">
+<h2>Contactez-nous</h2>
+<form>
+<label for="nom">Nom</label>
+<input type="text" id="nom" name="nom" required>
 
 
-<div class="row">
-<div class="col">
-<label for="phone">Téléphone (optionnel)</label>
-<input id="phone" name="phone" type="tel" placeholder="+225 00 00 00 00" />
-</div>
+<label for="prenom">Prénom</label>
+<input type="text" id="prenom" name="prenom" required>
 
 
-<div>
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Explique ton besoin..." required aria-required="true"></textarea>
-<p class="small">Les champs marqués d'une astérisque sont obligatoires.</p>
-</div>
+<label for="sujet">Sujet</label>
+<input type="text" id="sujet" name="sujet" required>
 
 
-<div class="consent" style="margin-top:6px">
-<input type="checkbox" id="consent" name="consent" required aria-required="true">
-<label for="consent" class="note">J'accepte que mes données soient utilisées pour répondre à ma demande. <a href="#">Politique de confidentialité</a></label>
-</div>
+<label for="numero">Numéro</label>
+<input type="tel" id="numero" name="numero" required>
 
 
-<div class="actions">
-<div style="display:flex;gap:8px;align-items:center">
-<button type="submit" class="btn">Envoyer</button>
-<button type="button" id="resetBtn" class="btn secondary">Réinitialiser</button>
-</div>
-<div class="note">Nous répondons en général sous 48 heures.</div>
-</div>
-
-
-<div id="status" class="success" role="status" aria-live="polite"></div>
+<button type="submit">Envoyer</button>
 </form>
-</main>
-
-
-<script>
-(function(){
-const form = document.getElementById('contactForm');
-const status = document.getElementById('status');
-const resetBtn = document.getElementById('resetBtn');
-
-
-function showMessage(msg){
-status.textContent = msg;
-status.style.display = 'block';
-setTimeout(()=>{ status.style.display='none'; }, 6000);
-}
-
-
-form.addEventListener('submit', function(e){
-e.preventDefault();
-// Simple client-side validation
-const name = form.name.value.trim();
-const email = form.email.value.trim();
-const subject = form.subject.value;
-const message = form.message.value.trim();
-const consent = form.consent.checked;
-
-
-if(!name || !email || !subject || !message || !consent){
-showMessage('Veuillez remplir tous les champs obligatoires.');
-return;
-}
-
-
-// Here normally you'd POST to your backend. We'll simulate success.
-showMessage('Message envoyé avec succès — merci !');
-form.reset();
-});
-
-
-resetBtn.addEventListener('click', function(){ form.reset(); status.style.display='none'; });
-})();
-</script>
+</div>
     </section>
 
     <!-- FOOTER -->
