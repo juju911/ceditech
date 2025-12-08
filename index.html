@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
-    <style>
+  <style>
 :root{
 
+.card{background:var(--card);width:100%;max-width:920px;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1fr 420px}
+
+
+.info{padding:36px 40px;background:linear-gradient(180deg,#fff,#fbfdff)}
+.info h1{margin:0 0 8px;font-size:20px}
+.info p{margin:0;color:var(--muted);line-height:1.5}
+
+
 form{padding:28px 36px;display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:12px}
+.col{flex:1}
+
+
+label{display:block;font-size:13px;margin-bottom:6px;color:#111827}
+input[type="text"],input[type="email"],input[type="tel"],textarea,select{
+width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e6e9ef;background:#fff;font-size:14px}
+textarea{min-height:140px;resize:vertical}
+
+
+.small{font-size:13px;color:var(--muted);margin-top:6px}
+
+
+.actions{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+.btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,102,255,0.12)}
+
+
+.consent{display:flex;gap:10px;align-items:flex-start}
+.consent input{margin-top:4px}
+
+
+.note{font-size:12px;color:var(--muted)}
+
+
+.success{display:none;padding:12px;border-radius:8px;background:#ecfdf5;color:#065f46;margin-top:10px}
+
 
 @media (max-width:900px){
 .card{grid-template-columns:1fr}
